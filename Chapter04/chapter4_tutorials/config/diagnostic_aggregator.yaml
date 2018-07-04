@@ -1,0 +1,8 @@
+type: AnalyzerGroup
+path: Hardware
+analyzers:
+  status:
+    type: GenericAnalyzer
+    path: Status
+    startswith: program7
+    num_items: 1

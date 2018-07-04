@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <!-- Program 10 -->
+  <node pkg="chapter4_tutorials" type="program10" name="program10" output="screen"/>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find chapter4_tutorials)/config/program10.rviz"/>
+
+</launch>
+

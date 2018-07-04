@@ -1,0 +1,8 @@
+
+<library path="libnodelet_hello_ros">
+	<class name="nodelet_hello_ros/Hello" type="nodelet_hello_ros::Hello" base_class_type="nodelet::Nodelet">
+	<description>
+	   A node to republish a message
+	</description>
+	</class>
+</library>

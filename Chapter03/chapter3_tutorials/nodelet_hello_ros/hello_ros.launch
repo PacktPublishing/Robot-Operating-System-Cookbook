@@ -1,0 +1,18 @@
+<launch>
+
+<!-- Started nodelet manager -->
+
+  <node pkg="nodelet" type="nodelet" name="standalone_nodelet"  args="manager" output="screen"/>
+
+<!-- Starting first nodelet -->
+
+  <node pkg="nodelet" type="nodelet" name="Hello1" args="load nodelet_hello_ros/Hello standalone_nodelet" output="screen">
+  </node>		
+
+<!-- Starting second nodelet -->
+
+  <node pkg="nodelet" type="nodelet" name="Hello2" args="load nodelet_hello_ros/Hello standalone_nodelet" output="screen">
+  </node>		
+
+</launch>
+

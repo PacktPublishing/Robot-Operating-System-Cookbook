@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <!-- Logger config -->
+  <env name="ROSCONSOLE_CONFIG_FILE"
+       value="$(find chapter4_tutorials)/config/chapter4_tutorials.config"/>
+
+  <!-- Program 1 with Memory Profiler valgrind -->
+  <node pkg="chapter4_tutorials" type="program1_mem" name="program1_mem" output="screen" launch-prefix="valgrind"/>
+</launch>
+

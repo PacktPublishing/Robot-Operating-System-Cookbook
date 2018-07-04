@@ -1,0 +1,23 @@
+<package>
+  <name>rviz_plugin_tutorials</name>
+  <version>0.10.1</version>
+  <description>
+     Tutorials showing how to write plugins for RViz.
+  </description>
+  <maintainer email="kumar@todo.todo">kumar</maintainer>
+  <license>BSD</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>qtbase5-dev</build_depend>
+  <build_depend>rviz</build_depend>
+
+  <run_depend>libqt5-core</run_depend>
+  <run_depend>libqt5-gui</run_depend>
+  <run_depend>libqt5-widgets</run_depend>
+  <run_depend>rviz</run_depend>
+
+  <export>
+      <rosdoc config="${prefix}/rosdoc.yaml"/>
+      <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

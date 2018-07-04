@@ -1,0 +1,10 @@
+<library path="lib/librviz_plugin_tutorials">
+  <class name="rviz_plugin_tutorials/Imu"
+         type="rviz_plugin_tutorials::ImuDisplay"
+         base_class_type="rviz::Display">
+    <description>
+      Displays direction and scale of accelerations from sensor_msgs/Imu messages.
+    </description>
+    <message_type>sensor_msgs/Imu</message_type>
+  </class>
+</library>
