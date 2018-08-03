@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find sia10f_gazebo)/worlds/sia10f.world"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+	<!-- Convert an xacro and put on parameter server -->
+	<param name="robot_description" command="$(find xacro)/xacro.py $(find sia10f_description)/urdf/sia10f.gazebo.xacro" />
+
+	<!-- Spawn a robot into Gazebo -->
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description" />
+</launch>

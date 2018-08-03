@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sia10f">
+
+  <xacro:include filename="$(find sia10f_description)/urdf/sia10f_macro.xacro" />
+  <xacro:include filename="$(find sia10f_description)/urdf/robotcell_macro.xacro" />
+	<xacro:include filename="$(find sia10f_description)/urdf/common.gazebo.xacro"/>
+
+  <xacro:motoman_sia10f prefix=""/>
+  <xacro:item_robotcell prefix=""/>
+
+  <joint name="robot_base" type="fixed">
+    <parent link="base"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0075" />
+  </joint>
+
+  <gazebo reference="world">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="robotcell">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="base">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link_s">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_l">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link_e">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_u">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link_r">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_b">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link_t">
+    <turnGravityOff>false</turnGravityOff>
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+  <transmission name="trans_s">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_s">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="s_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_l">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_l">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="l_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_e">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_e">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="e_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_u">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_u">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="u_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_r">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_r">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_b">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_b">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="b_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="trans_t">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_t">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="t_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+</robot>

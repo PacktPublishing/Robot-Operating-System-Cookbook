@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: shadow_tc
+    relative_path: urdf/model.urdf
+  SRDF:
+    relative_path: config/smart_grasping_sandbox.srdf
+  CONFIG:
+    author_name: Kumar Bipin
+    author_email: linux.kbp@gmail.com
+    generated_timestamp: 1529827156

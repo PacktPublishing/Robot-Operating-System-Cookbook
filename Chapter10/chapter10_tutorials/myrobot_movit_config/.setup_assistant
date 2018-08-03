@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: sia10f_description
+    relative_path: urdf/my_industrial_robot.xacro
+  SRDF:
+    relative_path: config/sia10f.srdf
+  CONFIG:
+    author_name: Kumar Bipin
+    author_email: linux.kbp@gmail.com
+    generated_timestamp: 1529855522

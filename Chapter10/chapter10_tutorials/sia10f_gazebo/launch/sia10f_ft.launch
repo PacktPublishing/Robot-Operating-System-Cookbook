@@ -1,0 +1,38 @@
+<launch>
+
+  <arg name="sim" default="true"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find sia10f_description)/urdf/sia10f_ft_sensor.xacro"/>
+  
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <group if="$(arg sim)"> 
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model sia10f"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="debug" value="false"/>
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="headless" value="false"/>
+    </include>
+  </group>
+
+  <!--<remap unless="$(arg sim)" from="/follow_joint_trajectory" to="/sia10f/joint_trajectory_controller/follow_joint_trajectory"/>
+
+  <rosparam file="$(find sia10f_control)/config/force_control.yaml" command="load"/>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="sia10f" args="joint_trajectory_controller joint_state_controller"/>
+
+  <include file="$(find sia10f_moveit_force_config)/launch/moveit_planning_execution.launch.xml">
+    <arg name="sim" value="$(arg sim)"/>
+  </include>
+
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/sia10f/joint_states"/>
+  </node>
+
+  <include file="$(find sia10f_moveit_force_config)/launch/moveit_rviz.launch"/>-->
+</launch>

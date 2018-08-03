@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+
+<robot name="robotcell" xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:include filename="$(find sia10f_description)/urdf/robotcell_macro.xacro" />
+	<xacro:item_robotcell prefix=""/>
+</robot>

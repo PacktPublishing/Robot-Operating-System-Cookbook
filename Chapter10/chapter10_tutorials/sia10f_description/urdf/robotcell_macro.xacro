@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="item_robotcell" params="prefix">
+		<!-- link list -->
+		<link name="${prefix}world" />
+		<link name="${prefix}robotcell">
+			<visual>
+				<geometry>
+					<mesh filename="package://sia10f_description/meshes/robotcell/visual/robotcell.stl" />
+				</geometry>
+				<material name="white">
+					<color rgba="1 1 1 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<mesh filename="package://sia10f_description/meshes/robotcell/collision/robotcell_c.stl" />
+				</geometry>
+				<material name="yellow">
+					<color rgba="0 1 1 1"/>
+				</material>
+			</collision>
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<mass value="60" />
+				<inertia
+					ixx="1.0" ixy="0.0" ixz="0.0"
+					iyy="1.0" iyz="0.0"
+					izz="1.0" />
+					<origin xyz="-0.6 0.5 0.0"/>
+				</inertial>
+			</link>
+			<link name="${prefix}base">
+				<visual>
+					<geometry>
+						<mesh filename="package://sia10f_description/meshes/robotcell/visual/base_sia10f.stl" />
+					</geometry>
+					<material name="white">
+						<color rgba="1 1 1 1"/>
+					</material>
+				</visual>
+				<collision>
+					<geometry>
+						<mesh filename="package://sia10f_description/meshes/robotcell/collision/base_sia10f_c.stl" />
+					</geometry>
+					<material name="yellow">
+						<color rgba="0 1 1 1"/>
+					</material>
+				</collision>
+				<inertial>
+					<origin xyz="0 0 0" rpy="0 0 0" />
+					<mass value="10" />
+					<inertia
+						ixx="1.0" ixy="0.0" ixz="0.0"
+						iyy="1.0" iyz="0.0"
+						izz="1.0" />
+					</inertial>
+				</link>
+				<!-- end of link list -->
+				<!-- joint list -->
+				<joint name="${prefix}world_base" type="fixed">
+					<parent link="${prefix}world"/>
+					<child link="${prefix}robotcell"/>
+					<origin rpy="0 -1.57 0" xyz="0 0 0.84"/>
+				</joint>
+				<joint name="${prefix}connection1" type="fixed">
+					<parent link="${prefix}robotcell"/>
+					<child link="${prefix}base"/>
+					<origin rpy="0 1.57 0" xyz="0.0075 0 0"/>
+				</joint>
+				<!-- end of joint list -->
+				<!-- ROS base_link (via link_l) to Motoman Robot (not Base) Frame transform -->
+			</xacro:macro>
+		</robot>
