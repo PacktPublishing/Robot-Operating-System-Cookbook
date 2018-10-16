@@ -1,0 +1,17 @@
+# This action allows one to query current information about
+# controller state, as well as change the controller state.
+
+# Action goal:
+# Requested changes to controller state. Each state must
+# have at least the controller name and new state. If the
+# controller type is non-empty, then it will be used to
+# make sure that the controller type matches. 
+ControllerState[] updates
+---
+# Action result:
+# The state of ALL controllers
+ControllerState[] state
+---
+# Action feedback:
+# Status changes in controllers as they are started/stopped
+ControllerState[] state_diff

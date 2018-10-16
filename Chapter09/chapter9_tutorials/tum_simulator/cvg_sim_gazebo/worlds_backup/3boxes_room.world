@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gazebo version="1.0">
+    <world name="default">
+        <scene>
+            <ambient rgba="0.5 0.5 0.5 1"/>
+            <background rgba="0.5 0.5 0.5 1"/>
+            <shadows enabled="false"/>
+        </scene>
+        <physics type="ode" update_rate="1000">
+            <gravity xyz="0 0 -9.81"/>
+            <ode>
+                <solver type="quick" dt="0.001" iters="10" sor="1.3"/>
+                <constraints cfm="0.0" erp="0.2" contact_max_correcting_vel="10" contact_surface_layer="0.001"/>
+            </ode>
+        </physics>
+        <light type="directional" name="directional_light_1" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="1 1 -1"/>
+        </light>
+        <light type="directional" name="directional_light_2" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="-1 1 -1"/>
+        </light>
+        <light type="directional" name="directional_light_3" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="-1 -1 -1"/>
+        </light>
+        <model name="3boxes_room" static="true">
+            <link name="3boxes_room_link">
+                <origin pose="0 0 0 0 0 0"/>
+                <collision name="3boxes_room_collision">
+                    <geometry>
+                        <mesh filename="3boxes_room.dae" scale="1 1 1"/>
+                    </geometry>
+                </collision>
+                <visual name="3boxes_room" cast_shadows="false">
+                    <geometry>
+                        <mesh filename="3boxes_room.dae" scale="1 1 1"/>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+        <include filename="../models/banner_beta.model" model_name="banner_beta" model_pose="0.6 3.345 1.191 1.571 0 3.141" />
+    </world>
+</gazebo>

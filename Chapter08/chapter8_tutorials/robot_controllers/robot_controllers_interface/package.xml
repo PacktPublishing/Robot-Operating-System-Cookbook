@@ -1,0 +1,26 @@
+<package>
+  <name>robot_controllers_interface</name>
+  <version>0.6.0</version>
+  <description>
+    Generic framework for robot controls.
+  </description>
+
+  <author>Michael Ferguson</author>
+  <maintainer email="rtoris@fetchrobotics.com">Russell Toris</maintainer>
+  <maintainer email="amoriarty@fetchrobotics.com">Alex Moriarty</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>actionlib</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>robot_controllers_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+
+  <run_depend>actionlib</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>robot_controllers_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+
+</package>

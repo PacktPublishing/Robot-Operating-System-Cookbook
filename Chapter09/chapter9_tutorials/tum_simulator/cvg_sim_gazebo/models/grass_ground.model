@@ -1,0 +1,17 @@
+<!--
+	 Author: Russell Toris, Worcester Polytechnic Institute
+	Version: July 17, 2012
+-->
+
+<gazebo version="1.0">
+	<model name="grass_ground" static="true">
+		<origin pose="0 0 0 0 0 0" />
+		<link name="link">
+			<visual name="visual">
+				<geometry>
+					<mesh filename="grass_ground.dae" scale="100.0 100.0 10.0" />
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</gazebo>

@@ -1,0 +1,17 @@
+<!--
+	 Author: Russell Toris, Worcester Polytechnic Institute
+	Version: July 17, 2012
+-->
+
+<gazebo version="1.0">
+	<model name="banner_cent" static="true">
+		<origin pose="0 0 0 0 0 0" />
+		<link name="link">
+			<visual name="visual">
+				<geometry>
+					<mesh filename="marker/cent.dae" scale="1.0 1.0 1.0" />
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</gazebo>

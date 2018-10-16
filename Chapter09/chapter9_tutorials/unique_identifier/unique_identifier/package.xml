@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+
+  <name>unique_identifier</name>
+  <version>1.0.6</version>
+  <description>
+    ROS messages and interfaces for universally unique identifiers.
+
+    Not needed for wet packages, use only to resolve dry stack
+    dependencies.
+  </description>
+  <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+  <author>Jack O'Quin</author>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/unique_identifier</url>
+  <url type="repository">https://github.com/ros-geographic-info/unique_identifier</url>
+  <url type="bugtracker">https://github.com/ros-geographic-info/unique_identifier/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>unique_id</exec_depend>
+  <exec_depend>uuid_msgs</exec_depend>
+
+  <export>
+    <metapackage/>
+    <architecture_independent/>
+  </export>
+
+</package>

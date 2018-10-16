@@ -1,0 +1,18 @@
+<package>
+  <name>msf_timing</name>
+  <version>1.0.1</version>
+  <description>msf_timing</description>
+  <maintainer email="simon.lynen@mavt.ethz.ch">Simon Lynen</maintainer>
+  <maintainer email="markus.achtelik_devel@mavt.ethz.ch">Markus Achtelik</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <url type="website">http://ros.org/wiki/modular_sensor_fusion</url>
+  <url type="bugtracker">https://github.com/ethz-asl/sensor_fusion/issues</url>
+
+  <author>Paul Furgale</author>
+  <author>Simon Lynen</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

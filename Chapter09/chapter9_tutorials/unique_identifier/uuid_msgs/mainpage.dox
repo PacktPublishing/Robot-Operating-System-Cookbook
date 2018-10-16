@@ -1,0 +1,9 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+This package contains ROS messages for universally unique identifiers (UUIDs).
+
+It does not provide any nodes, libraries or scripts.
+
+*/

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<robot name="quadrotor_hokuyo_utm30lx"
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+   
+    <property name="M_PI" value="3.1415926535897931" />
+    
+    <!-- Included URDF Files -->
+    <include filename="$(find cvg_sim_gazebo)/urdf/quadrotor_base.urdf.xacro" />
+    
+    <!-- Instantiate quadrotor_base_macro once (has no parameters atm) -->
+    <quadrotor_base_macro />
+    
+
+    <!-- Sonar height sensor -->
+    <include filename="$(find cvg_sim_gazebo)/urdf/sensors/sonar_sensor.urdf.xacro" />
+    <xacro:sonar_sensor name="sonar" parent="base_link" ros_topic="sonar_height" update_rate="10" min_range="0.01" max_range="3.0" field_of_view="${40*M_PI/180}" ray_count="3">
+      <origin xyz="-0.15 0.0 0.0" rpy="0 ${90*M_PI/180} 0"/>
+    </xacro:sonar_sensor>
+
+
+    <!-- Hokuyo UTM-30LX mounted upside down below the quadrotor body 
+    <include filename="$(find cvg_sim_gazebo)/urdf/sensors/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:hokuyo_utm30lx name="laser0" parent="base_link" ros_topic="scan" update_rate="40" ray_count="1081" min_angle="135" max_angle="-135">
+      <origin xyz="0.0 0.0 0.08" rpy="${M_PI} 0 0"/>
+    </xacro:hokuyo_utm30lx>-->
+    
+    <!-- The following two cameras should be united to one! -->
+    <!-- Forward facing camera -->
+    <include filename="$(find cvg_sim_gazebo)/urdf/sensors/generic_camera.urdf.xacro" />
+    <xacro:generic_camera name="front" sim_name="ardrone" parent="base_link" update_rate="60" res_x="640" res_y="360" image_format="R8G8B8" hfov="${81*M_PI/180}">
+      <origin xyz="0.21 0.0 0.01" rpy="0 0 0"/>
+    </xacro:generic_camera>
+
+    <!-- Downward facing camera -->
+    <include filename="$(find cvg_sim_gazebo)/urdf/sensors/generic_camera.urdf.xacro" />
+    <xacro:generic_camera name="bottom" sim_name="ardrone" parent="base_link" update_rate="60" res_x="640" res_y="360" image_format="R8G8B8" hfov="${81*M_PI/180}">
+      <origin xyz="0.15 0.0 0.0" rpy="0 -${M_PI/2} 0"/>
+    </xacro:generic_camera>
+    
+</robot>
+  

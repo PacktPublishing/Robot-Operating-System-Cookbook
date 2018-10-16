@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+T=$1
+else
+T=5
+fi
+
+echo " ### plotting scale ###"
+echo " ### buffer = " $T "sec"
+
+rxplot msf_core/state_out/data[16] -b $T -t "scale" -l L 

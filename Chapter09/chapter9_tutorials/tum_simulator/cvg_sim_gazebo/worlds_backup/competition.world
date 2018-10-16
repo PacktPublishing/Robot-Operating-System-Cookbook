@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gazebo version="1.0">
+    <world name="default">
+        <scene>
+            <ambient rgba="0.5 0.5 0.5 1"/>
+            <background rgba="0.5 0.5 0.5 1"/>
+            <shadows enabled="false"/>
+        </scene>
+        <physics type="ode" update_rate="1000">
+            <gravity xyz="0 0 -9.81"/>
+            <ode>
+                <solver type="quick" dt="0.001" iters="10" sor="1.3"/>
+                <constraints cfm="0.0" erp="0.2" contact_max_correcting_vel="10" contact_surface_layer="0.001"/>
+            </ode>
+        </physics>
+        <light type="directional" name="directional_light_1" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="1 1 -1"/>
+        </light>
+        <light type="directional" name="directional_light_2" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="-1 1 -1"/>
+        </light>
+
+    <!-- Ground Plane -->
+    <model name="plane1_model" static="true">
+      <link name="body">
+        <collision name="geom_1">
+          <geometry>
+            <plane normal="0 0 1"/>
+          </geometry>
+          <surface>
+            <friction>
+              <ode mu="10.0" mu2="10.0" fdir1="0 0 0" slip1="0" slip2="0"/>
+            </friction>
+            <bounce restitution_coefficient="0" threshold="1000000.0"/>
+            <contact>
+              <ode soft_cfm="0" soft_erp="0.2" kp="1e10" kd="1" max_vel="100.0" min_depth="0.0001"/>
+            </contact>
+          </surface>
+        </collision>
+
+        <visual name="visual_1" cast_shadows="false">
+          <geometry>
+            <plane normal="0 0 1"/>
+          </geometry>
+          <material script="Kitchen/Grass"/>
+        </visual>
+      </link>
+    </model>
+
+        <model name="wall1" static="true">
+            <link name="wall1_link">
+                <origin pose="18 2 1 0 0 0"/>
+                <collision name="wall1_collision">
+                    <geometry>
+                        <box size="0.2 8 2"/>
+                    </geometry>
+                </collision>
+                <visual name="wall1" cast_shadows="true">
+                    <geometry>
+                        <box size="0.2 8 2"/>
+                    </geometry>
+                    <material script="Kitchen/CounterTop"/>
+                </visual>
+            </link>
+        </model>
+
+
+        <model name="wall2" static="true">
+            <link name="wall2_link">
+                <origin pose="-2 2 1 0 0 0"/>
+                <collision name="wall2_collision">
+                    <geometry>
+                        <box size="0.2 8 2"/>
+                    </geometry>
+                </collision>
+                <visual name="wall2" cast_shadows="true">
+                    <geometry>
+                        <box size="0.2 8 2"/>
+                    </geometry>
+                    <material script="Kitchen/CounterTop"/>
+                </visual>
+            </link>
+        </model>
+
+
+        <model name="wall3" static="true">
+            <link name="wall3_link">
+                <origin pose="8 6 1 0 0 0"/>
+                <collision name="wall3_collision">
+                    <geometry>
+                        <box size="20 0.2 2"/>
+                    </geometry>
+                </collision>
+                <visual name="wall3" cast_shadows="true">
+                    <geometry>
+                        <box size="20 0.2 2"/>
+                    </geometry>
+                    <material script="Kitchen/CounterTop_H"/>
+                </visual>
+            </link>
+        </model>
+
+
+        <model name="wall4" static="true">
+            <link name="wall4_link">
+                <origin pose="8 -2 1 0 0 0"/>
+                <collision name="wall4_collision">
+                    <geometry>
+                        <box size="20 0.2 2"/>
+                    </geometry>
+                </collision>
+                <visual name="wall4" cast_shadows="true">
+                    <geometry>
+                        <box size="20 0.2 2"/>
+                    </geometry>
+                    <material script="Kitchen/CounterTop_H"/>
+                </visual>
+            </link>
+        </model>
+
+        <model name="wall_middle" static="true">
+            <link name="wall_middle_link">
+                <origin pose="7 2 1 0 0 0"/>
+                <collision name="wall_middle_collision">
+                    <geometry>
+                        <box size="18 0.2 2"/>
+                    </geometry>
+                </collision>
+                <visual name="wall_middle" cast_shadows="true">
+                    <geometry>
+                        <box size="18 0.2 2"/>
+                    </geometry>
+                    <material script="Kitchen/CounterTop_H"/>
+                </visual>
+            </link>
+        </model>
+
+
+
+        <model name="obstacle_1" static="true">
+            <link name="obstacle_1_link">
+                <origin pose="7 5 1 0 0 0"/>
+                <collision name="obstacle_1_collision">
+                    <geometry>
+                        <box size="0.2 2 2"/>
+                    </geometry>
+                </collision>
+                <visual name="obstacle_1" cast_shadows="true">
+                    <geometry>
+                        <box size="0.2 2 2"/>
+                    </geometry>
+                    <material script="Kitchen/WoodFloor"/>
+                </visual>
+            </link>
+        </model>
+
+
+
+        <model name="obstacle_2" static="true">
+            <link name="obstacle_2_link">
+                <origin pose="7 2.5 1 0 0 0"/>
+                <collision name="obstacle_2_collision">
+                    <geometry>
+                        <box size="0.2 1 2"/>
+                    </geometry>
+                </collision>
+                <visual name="obstacle_2" cast_shadows="true">
+                    <geometry>
+                        <box size="0.2 1 2"/>
+                    </geometry>
+                    <material script="Kitchen/WoodFloor"/>
+                </visual>
+            </link>
+        </model>
+
+
+        <include filename="../models/competition_start.model" model_name="competition_start" model_pose="0 0 0.001 0 0 0.0" />
+        <include filename="../models/competition_end.model" model_name="competition_end" model_pose="0 4 0.001 0 0 0.0" />
+    </world>
+</gazebo>
+
+ 

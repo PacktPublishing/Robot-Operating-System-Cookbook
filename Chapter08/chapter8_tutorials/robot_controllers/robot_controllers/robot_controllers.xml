@@ -1,0 +1,59 @@
+<library path="librobot_controllers">
+
+  <class name="robot_controllers/GravityCompensation"
+         type="robot_controllers::GravityCompensation"
+         base_class_type="robot_controllers::Controller">
+    <description>Gravity compensation for a kinematic chain</description>
+  </class>
+
+  <class name="robot_controllers/FollowJointTrajectoryController"
+         type="robot_controllers::FollowJointTrajectoryController"
+         base_class_type="robot_controllers::Controller">
+    <description>Follow Joint Trajectory Action</description>
+  </class>
+
+  <class name="robot_controllers/PointHeadController"
+         type="robot_controllers::PointHeadController"
+         base_class_type="robot_controllers::Controller">
+    <description>Point Head Action</description>
+  </class>
+
+  <class name="robot_controllers/DiffDriveBaseController"
+         type="robot_controllers::DiffDriveBaseController"
+         base_class_type="robot_controllers::Controller">
+    <description>Base Controller for a differential drive robot base</description>
+  </class>
+
+  <class name="robot_controllers/CartesianPoseController"
+         type="robot_controllers::CartesianPoseController"
+         base_class_type="robot_controllers::Controller">
+    <description>Cartesian Pose Controller</description>
+  </class>
+
+  <class name="robot_controllers/CartesianWrenchController"
+         type="robot_controllers::CartesianWrenchController"
+         base_class_type="robot_controllers::Controller">
+    <description>Cartesian Wrench Controller</description>
+  </class>
+
+  <class name="robot_controllers/CartesianTwistController"
+         type="robot_controllers::CartesianTwistController"
+         base_class_type="robot_controllers::Controller">
+    <description>Cartesian Twist Controller</description>
+  </class>
+
+  <class name="robot_controllers/ParallelGripperController"
+         type="robot_controllers::ParallelGripperController"
+         base_class_type="robot_controllers::Controller">
+    <description>A simple parallel jaw gripper controller
+                 (mainly for simulation)</description>
+  </class>
+
+  <class name="robot_controllers/ScaledMimicController"
+         type="robot_controllers::ScaledMimicController"
+         base_class_type="robot_controllers::Controller">
+    <description>A simple controller that can mimic a joint
+                 (mainly for simulation)</description>
+  </class>
+
+</library>

@@ -1,0 +1,18 @@
+- git:
+    local-name: gazebo_ros_pkgs
+    uri: 'https://github.com/ros-simulation/gazebo_ros_pkgs.git'
+    version: indigo-devel
+
+- git:
+    local-name: pysdf
+    uri: https://github.com/shadow-robot/pysdf.git
+
+- git:
+    local-name: gazebo2rviz
+    version: F_add_moveit_funtionallity
+    uri: https://github.com/shadow-robot/gazebo2rviz.git
+
+- git:
+    local-name: universal_robot
+    version: F_gazebo_7_docker
+    uri: https://github.com/shadow-robot/universal_robot.git 

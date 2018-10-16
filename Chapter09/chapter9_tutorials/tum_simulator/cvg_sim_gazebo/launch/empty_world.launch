@@ -1,0 +1,8 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+  <node name="empty_world_server" pkg="gazebo" type="gazebo" args="$(find cvg_sim_gazebo)/worlds/empty.world" respawn="false" output="screen">
+
+  </node>
+  <node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/>
+</launch>
+

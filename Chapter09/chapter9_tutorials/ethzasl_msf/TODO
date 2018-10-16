@@ -1,0 +1,22 @@
+Multiple fuzzy tracking states
+
+extern templates c++11
+
+Eigen::Map wrap Q-blocks (if possible)
+
+Multiplication of F blockwise
+
+Obs-constrainted EKF prediction
+
+symm P: EV decompose P, set EVs<eps to zero and rebuild (profile this to know the cost!)
+
+make sensor_manager provide interface to add measurement to core, so that 
+measurements dont need to include the core, but just the base manager class. 
+
+use more polymorphism to reduce compilation time and break up dependencies
+
+plot_scripts autogen with correct indices from msf_core
+
+TRUE MODULARITY:
+a) template sensors to calibration states
+b) Every sensor has a set of states (calib bias etc) these get added to a large state vector automatically.

@@ -1,0 +1,25 @@
+<package>
+  <name>ethzasl_msf</name>
+  <version>1.0.1</version>
+  <description>Modular Sensor Fusion (MSF) framework containing the core filter functions 
+     including full state propagation and shell for update sensor modules</description>
+  <maintainer email="simon.lynen@mavt.ethz.ch">Simon Lynen</maintainer>
+  <maintainer email="markus.achtelik_devel@mavt.ethz.ch">Markus Achtelik</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <url type="website">http://ros.org/wiki/ethzasl_msf</url>
+  <url type="bugtracker">https://github.com/ethz-asl/ethzasl_msf/issues</url>
+
+  <author>Simon Lynen</author>
+  <author>Markus Achtelik</author>
+  <author>Stephan Weiss</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>msf_core</run_depend>
+  <run_depend>msf_distort</run_depend>
+  <run_depend>msf_timing</run_depend>
+  <run_depend>msf_updates</run_depend>
+  <run_depend>sensor_fusion_comm</run_depend>
+</package>

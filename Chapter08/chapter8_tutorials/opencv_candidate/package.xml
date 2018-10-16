@@ -1,0 +1,17 @@
+<package>
+  <name>opencv_candidate</name>
+  <version>0.2.5</version>
+  <description>Experimental OpenCV functions</description>
+  <author email="erublee@willowgarage.com">Ethan Rublee</author>
+  <author email="vrabud@willowgarage.com">Vincent Rabaud</author>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+
+  <url>https://github.com/wg-perception/opencv_candidate</url>
+
+  <build_depend>cv_bridge</build_depend>
+
+  <run_depend>cv_bridge</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

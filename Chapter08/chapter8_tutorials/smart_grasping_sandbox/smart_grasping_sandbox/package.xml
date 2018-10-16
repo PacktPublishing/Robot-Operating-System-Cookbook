@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>smart_grasping_sandbox</name>
+  <version>0.0.0</version>
+  <description>A package that contains the main launch file for running a sandbox environment for Shadow's Smart Grasping System.</description>
+
+  <maintainer email="software@shadowrobot.com">Shadow Software team</maintainer>
+
+  <license>GPLv3</license>
+
+  <author email="ugo@shadowrobot.com">Ugo Cupcic</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>fh_desc</build_depend>
+  <build_depend>smart_grasp_moveit_config</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>fh_desc</run_depend>
+  <run_depend>smart_grasp_moveit_config</run_depend>
+
+</package>

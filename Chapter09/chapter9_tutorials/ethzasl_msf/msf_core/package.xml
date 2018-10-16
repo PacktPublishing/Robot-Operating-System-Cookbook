@@ -1,0 +1,34 @@
+<package>
+  <name>msf_core</name>
+  <version>1.0.1</version>
+  <description>Modular Sensor Fusion (MSF) framework containing the core filter functions 
+     including full state propagation and shell for update sensor modules</description>
+  <maintainer email="simon.lynen@mavt.ethz.ch">Simon Lynen</maintainer>
+  <maintainer email="markus.achtelik_devel@mavt.ethz.ch">Markus Achtelik</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <url type="website">http://ros.org/wiki/ethzasl_msf</url>
+  <url type="bugtracker">https://github.com/ethz-asl/sensor_fusion/issues</url>
+
+  <author>Simon Lynen</author>
+  <author>Markus Achtelik</author>
+  <author>Stephan Weiss</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>msf_timing</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>glog_catkin</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>msf_timing</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>glog_catkin</run_depend>
+</package>

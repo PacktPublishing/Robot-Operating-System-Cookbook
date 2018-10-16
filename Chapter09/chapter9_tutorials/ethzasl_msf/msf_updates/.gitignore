@@ -1,0 +1,17 @@
+build
+CMakeCache.txt
+msg_gen
+bin
+lib
+*~
+*cfg/cpp/*
+.project
+.cproject
+.settings
+doc
+*.cfgc
+src/msf_updates/*
+docs/
+camera.cfg
+unported_ssf
+/COMPILE_ONLY_POSEFILTER

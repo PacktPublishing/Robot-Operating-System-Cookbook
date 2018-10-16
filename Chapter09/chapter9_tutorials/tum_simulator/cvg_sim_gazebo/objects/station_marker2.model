@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<model:physical name="land_station" 
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz" 
+  xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model" 
+  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor" 
+  xmlns:window="http://playerstage.sourceforge.net/gazebo/xmlschema/#window" 
+  xmlns:param="http://playerstage.sourceforge.net/gazebo/xmlschema/#param" 
+  xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body" 
+  xmlns:geo="http://willowgarage.com/xmlschema/#geo" 
+  xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom" 
+  xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint" 
+  xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
+  xmlns:ui="http://playerstage.sourceforge.net/gazebo/xmlschema/#ui"
+  xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering" 
+  xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable" 
+  xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+  xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics" >
+>
+   <xyz>0 0 0</xyz>	
+   <rpy>0 0 0</rpy>
+   <static>true</static>
+   <body:trimesh name="landstation_body">
+     <geom:trimesh name="landstation_geom">
+       <scale>1.0 1.0 1.0</scale>
+       <mesh>Marker2.dae</mesh>
+       <genTexCoord>true</genTexCoord>
+       <visual>
+         <scale>1.0 1.0 1.0</scale>
+         <mesh>Marker2.dae</mesh>
+	 
+	 <!--<material>Hector/BlueBrushedAluminum</material>-->
+         <!--<material>Hector/Gouraud</material>-->
+       </visual>
+     </geom:trimesh>
+   </body:trimesh>
+</model:physical>

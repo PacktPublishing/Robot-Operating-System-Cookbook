@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gazebo version="1.0">
+    <world name="default">
+        <scene>
+            <ambient rgba="0.5 0.5 0.5 1"/>
+            <background rgba="0.5 0.5 0.5 1"/>
+            <shadows enabled="false"/>
+        </scene>
+        <physics type="ode" update_rate="1000">
+            <gravity xyz="0 0 -9.81"/>
+            <ode>
+                <solver type="quick" dt="0.001" iters="10" sor="1.3"/>
+                <constraints cfm="0.0" erp="0.2" contact_max_correcting_vel="10" contact_surface_layer="0.001"/>
+            </ode>
+        </physics>
+        <light type="directional" name="directional_light_1" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="1 1 -1"/>
+        </light>
+        <light type="directional" name="directional_light_2" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="-1 1 -1"/>
+        </light>
+        <light type="directional" name="directional_light_3" cast_shadows="false">
+            <origin pose="0 0 20 0 0 0"/>
+            <diffuse rgba="1 1 1 1"/>
+            <specular rgba="1 1 1 1"/>
+            <attenuation range="300"/>
+            <direction xyz="-1 -1 -1"/>
+        </light>
+        <light type="point" name="point_light_1" cast_shadows="false">
+            <origin pose='-4.000000 0.000000 2.000000 0.000000 -0.000000 0.000000'/>
+            <diffuse rgba='1.000000 1.000000 1.000000 1.000000'/>
+            <specular rgba='0.100000 0.100000 0.100000 1.000000'/>
+            <direction xyz='0.000000 0.000000 -1.000000'/>
+        </light>
+        <model name="garching_kitchen" static="true">
+            <link name="garching_kitchen_link">
+                <origin pose="0 0 0 0 0 0"/>
+                <collision name="garching_kitchen_collision">
+                    <geometry>
+                        <mesh filename="garching_kitchen.dae" scale="1 1 1"/>
+                    </geometry>
+                </collision>
+                <visual name="garching_kitchen" cast_shadows="false">
+                    <geometry>
+                        <mesh filename="garching_kitchen.dae" scale="1 1 1"/>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+        <model name="cvg_logo" static="true">
+            <link name="cvg_logo_link">
+                <origin pose="-1.0 -2.40 3.00 1.571 0.0 0.0"/>
+                <visual name="cvg_logo" cast_shadows="false">
+                    <geometry>
+                        <mesh filename="cvg_logo.dae" scale="5.45 0.95 0.5"/>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+        <model name="grass_ground" static="true">
+            <link name="grass_ground_link">
+                <origin pose="0.0 0.0 0.0 0.0 0.0 0.0"/>
+                <visual name="grass_ground" cast_shadows="false">
+                    <geometry>
+                        <mesh filename="grass_ground.dae" scale="100 100 100"/>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+    </world>
+</gazebo>

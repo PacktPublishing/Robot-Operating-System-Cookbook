@@ -1,0 +1,22 @@
+<launch>
+    <arg name="gui" default="true"/>
+    <arg name="gzweb" default="false"/>
+    <arg name="verbose" default="false"/>
+
+    <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+    <include file="$(find fh_desc)/launch/launch_simulation.launch">
+        <arg name="gui" default="$(arg gui)"/>
+        <arg name="gzweb" default="$(arg gzweb)"/>
+        <arg name="verbose" default="$(arg verbose)"/>
+    </include>
+    <include file="$(find smart_grasp_moveit_config)/launch/move_group.launch"/>
+
+    <include file="$(find gazebo2rviz)/launch/gazebo2moveit.launch">
+        <env name="GAZEBO_MODEL_PATH" value="/workspace/src:/workspace/src/universal_robot:~/.gazebo/models:${GAZEBO_MODEL_PATH}"/>
+        <env name="MESH_WORKSPACE_PATH" value="/workspace/src"/>
+    </include>
+
+    <group if="$(arg gui)">
+        <include file="$(find smart_grasp_moveit_config)/launch/moveit_rviz.launch"/>
+    </group>
+</launch>

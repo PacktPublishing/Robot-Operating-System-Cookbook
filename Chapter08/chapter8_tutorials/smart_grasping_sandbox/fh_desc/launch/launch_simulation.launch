@@ -1,0 +1,50 @@
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="start_gazebo" default="true"/>
+  <arg name="limited" default="false"/>
+  <arg name="paused" default="false"/>
+  <arg name="gzweb" default="false"/>
+  <arg name="verbose" default="false"/>
+
+  <group if="$(arg start_gazebo)">
+    <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find smart_grasping_sandbox)/world/smart_grasping.world"/>
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="verbose" value="$(arg verbose)"/>
+      
+      <arg name="physics" value="ode"/>
+      <env name="GAZEBO_MODEL_PATH" value="~/.gazebo/models:/workspace/src:/workspace/src/universal_robot:${GAZEBO_MODEL_PATH}"/>
+    </include>
+  </group>
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find fh_desc)/model.urdf'" />
+
+
+  <group unless="$(arg gzweb)">
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+      args="-urdf -param robot_description -model smart_grasping_sandbox" respawn="false" output="screen" />
+  </group>
+
+  <group if="$(arg gzweb)">
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+      args="-urdf -model smart_grasping_sandbox -file /tmp/smart_grasping_sandbox.gazebo.urdf -package_to_model" respawn="false" output="screen" >
+      <param name="dummy_to_generate_gazebo_urdf_file"
+        command="rosrun xacro xacro.py -o /tmp/smart_grasping_sandbox.gazebo.urdf '$(find fh_desc)/model.urdf'" />
+      <param name="dummy_to_convert_package_to_model"
+        command="sed -i s@package://@model://@g /tmp/smart_grasping_sandbox.gazebo.urdf" />
+    </node>
+  </group>
+
+  <node name="world_to_arm_base" pkg="tf" type="static_transform_publisher" args="0 -1 1 0 0 0 world base_link 100" />
+  <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
+
+  <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur10.yaml" command="load"/>
+  <param name="arm_controller/allow_partial_joints_goal" value="true"/>
+  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+
+  <rosparam command="load" file="$(find fh_desc)/config/hand_H_gazebo_trajectory.yaml"/>
+  <node name="spawn_hand_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--shutdown-timeout=1.0 --timeout=360.0 hand_controller" />
+
+</launch>

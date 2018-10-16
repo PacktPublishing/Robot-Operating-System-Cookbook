@@ -1,0 +1,38 @@
+<launch>
+  <arg name="enable_logging" default="false"/>
+  <arg name="enable_ground_truth" default="true"/>
+  <arg name="log_file" default="firefly"/>
+  <arg name="mav_name" default="firefly"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find rotors_gazebo)/worlds/basic.world"/>
+    <!-- <arg name="debug" value="true"/> -->
+    <arg name="paused" value="true"/>
+    <!-- <arg name="gui" value="false"/> -->
+  </include>
+
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="model" value="$(find rotors_description)/urdf/$(arg mav_name)_generic_pose_sensor.gazebo" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg log_file)"/>
+  </include>
+
+  <group ns="$(arg mav_name)">
+	<node name="msf" pkg="msf_updates" type="pose_sensor" clear_params="true" output="screen">
+	  <remap from="msf_updates/pose_with_covariance_input" to="odometry_sensor1/pose_with_covariance" />
+	  <remap from="msf_core/imu_state_input" to="imu" />
+      <rosparam command="load" file="$(find rotors_simulator_demos)/resource/msf_simulator.yaml" />
+	  <param name="capability_group" value="Core"></param>
+	</node>
+
+    <node name="lee_position_controller_node" pkg="rotors_control" type="lee_position_controller_node" output="screen">
+      <rosparam command="load" file="$(find rotors_gazebo)/resource/lee_controller_$(arg mav_name).yaml" />
+      <rosparam command="load" file="$(find rotors_gazebo)/resource/$(arg mav_name).yaml" />
+      <remap from="odometry" to="msf_core/odometry" />
+    </node>
+	
+    <node name="hovering_example_msf" pkg="rotors_simulator_demos" type="hovering_example_msf" output="screen"/>
+  </group>
+</launch>

@@ -1,0 +1,13 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+This package provides Python and C++ interfaces for managing
+universally unique identifiers.
+
+There are no ROS nodes or commands.
+
+Note: For Time-Based UUID generation using the C++ interface
+      seed the random number generator through srand()
+
+*/

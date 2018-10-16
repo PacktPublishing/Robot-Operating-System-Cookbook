@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="land_station1" textfile="$(find cvg_sim_gazebo)/objects/station_marker1.model" /> 
+    <node name="spawn_station1" pkg="gazebo" type="spawn_model" args="-param land_station1 -gazebo -model land_station1 -x 0.0 -y 2.0 -z 0.0" output="screen" /> 
+</launch>
